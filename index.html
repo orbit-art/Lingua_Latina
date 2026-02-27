@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingua Latina Pro — платформа изучения латыни</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Lingua Latina Pro</h1>
+    <p>Умный тренажёр латыни: словари, правила, карточки, тесты и статистика прогресса.</p>
+    <div class="hero-actions">
+      <button id="scrollToVocabBtn">Добавить новые слова</button>
+      <button id="startPracticeBtn" class="secondary-btn">Начать практику</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card two-col stats-card">
+      <div>
+        <h2>Твой прогресс</h2>
+        <p class="muted">Следи за ежедневной активностью и результатами тренировок.</p>
+        <div class="stats-grid">
+          <div><strong id="totalWords">0</strong><span>слов</span></div>
+          <div><strong id="learnedWords">0</strong><span>выучено</span></div>
+          <div><strong id="totalRules">0</strong><span>правил</span></div>
+          <div><strong id="correctAnswers">0</strong><span>верных ответов</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Ежедневная цель</h3>
+        <form id="goalForm" class="form-inline">
+          <input id="dailyGoalInput" type="number" min="1" step="1" placeholder="Слов в день" required />
+          <button type="submit">Сохранить цель</button>
+        </form>
+        <p id="goalStatus" class="muted"></p>
+        <p id="streakStatus" class="muted"></p>
+      </div>
+    </section>
+
+    <section id="vocabSection" class="card">
+      <h2>Словарик изученных слов</h2>
+      <form id="wordForm" class="form-grid">
+        <input id="latinWord" type="text" placeholder="Латинское слово" required />
+        <input id="wordMeaning" type="text" placeholder="Перевод" required />
+        <input id="wordExample" type="text" placeholder="Пример использования" />
+        <select id="wordDifficulty">
+          <option value="easy">Лёгкое</option>
+          <option value="medium" selected>Среднее</option>
+          <option value="hard">Сложное</option>
+        </select>
+        <button type="submit">Добавить слово</button>
+      </form>
+      <div class="toolbar">
+        <input id="wordSearch" type="search" placeholder="Поиск слов" />
+        <select id="wordFilter">
+          <option value="all">Все слова</option>
+          <option value="learned">Только выученные</option>
+          <option value="notLearned">Только в процессе</option>
+          <option value="hard">Только сложные</option>
+        </select>
+      </div>
+      <ul id="wordList" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Словарик правил</h2>
+      <form id="ruleForm" class="form-grid">
+        <input id="ruleTitle" type="text" placeholder="Название правила" required />
+        <input id="ruleCategory" type="text" placeholder="Категория (например, склонения)" required />
+        <input id="ruleNote" type="text" placeholder="Краткая формулировка" required />
+        <button type="submit">Добавить правило</button>
+      </form>
+      <div class="toolbar">
+        <input id="ruleSearch" type="search" placeholder="Поиск правил" />
+      </div>
+      <ul id="ruleList" class="list"></ul>
+    </section>
+
+    <section id="practiceSection" class="card two-col">
+      <div>
+        <h2>Карточки</h2>
+        <p class="muted">Повторяй слова в режиме flashcards.</p>
+        <div id="flashcard" class="flashcard">Нажми «Случайная карточка»</div>
+        <div class="hero-actions">
+          <button id="randomCardBtn">Случайная карточка</button>
+          <button id="flipCardBtn" class="secondary-btn">Показать перевод</button>
+        </div>
+      </div>
+      <div>
+        <h2>Тренировка</h2>
+        <p class="muted">Выбери правильный перевод латинского слова.</p>
+        <div id="quizWrap">
+          <p id="quizQuestion">Добавь минимум 4 слова для запуска теста.</p>
+          <div id="quizOptions" class="quiz-options"></div>
+          <p id="quizFeedback" class="muted"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Резервная копия данных</h2>
+      <div class="hero-actions">
+        <button id="exportBtn">Экспорт JSON</button>
+        <label class="file-label" for="importInput">Импорт JSON</label>
+        <input id="importInput" type="file" accept="application/json" hidden />
+        <button id="resetBtn" class="danger-btn">Сбросить всё</button>
+      </div>
+      <p class="muted">Можно переносить прогресс между устройствами.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Per aspera ad astra — «Через тернии к звёздам».</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
