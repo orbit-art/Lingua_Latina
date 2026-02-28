@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Крылатые выражения — Lingua Latina Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <header class="hero compact">
+    <h1>Крылатые выражения</h1>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Меню</button>
+    <nav id="site-nav" class="nav">
+      <a class="nav-link" href="index.html">Главная</a>
+      <a class="nav-link" href="translator.html">Переводчик</a>
+      <a class="nav-link" href="stats.html">Статистика</a>
+      <a class="nav-link" href="vocab.html">Слова</a>
+      <a class="nav-link" href="rules.html">Правила</a>
+      <a class="nav-link active" href="idioms.html">Крылатые выражения</a>
+      <a class="nav-link" href="practice.html">Практика</a>
+      <div class="nav-settings">
+        <label class="theme-select-wrap">
+          <span>Тема</span>
+          <select id="themeSelect" aria-label="Тема сайта">
+            <option value="dark">Тёмная тема</option>
+            <option value="light">Светлая тема</option>
+          </select>
+        </label>
+        <label class="eco-toggle">
+          <input id="ecoModeToggle" type="checkbox" />
+          <span>Эко-режим</span>
+        </label>
+        <div class="accent-palette" aria-label="Акцентные цвета">
+          <button type="button" class="accent-dot" data-accent="#7c133b" title="Алый"></button>
+          <button type="button" class="accent-dot" data-accent="#53a77d" title="Изумрудный"></button>
+          <button type="button" class="accent-dot" data-accent="#ffebba" title="Золотой"></button>
+          <button type="button" class="accent-dot" data-accent="#6f96aa" title="Голубой"></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Добавить выражение</h2>
+      <form id="idiomForm" class="form-grid">
+        <input id="idiomLatin" type="text" placeholder="Латинское выражение" required />
+        <input id="idiomLiteral" type="text" placeholder="Дословный перевод" required />
+        <input id="idiomMeaning" type="text" placeholder="Значение выражения" required />
+        <button type="submit">Добавить</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Поиск</h2>
+      <input id="idiomSearch" type="search" placeholder="Поиск по выражениям" />
+      <ul id="idiomList" class="list"></ul>
+      <div class="list-footer">
+        <span id="idiomPaginationInfo" class="muted"></span>
+        <button id="idiomLoadMoreBtn" type="button" class="secondary-btn">Показать ещё</button>
+      </div>
+    </section>
+
+    <section class="card import-card">
+      <h2>Импорт крылатых выражений через JSON</h2>
+      <p class="muted">Вставь массив выражений или объект вида <code>{"idioms": [...]}</code>. Поля: <code>latin</code>, <code>literal</code>, <code>meaning</code>.</p>
+      <textarea id="idiomJsonInput" rows="7" placeholder='[{"latin":"Carpe diem","literal":"Лови день","meaning":"Живи настоящим"}]'></textarea>
+      <div class="hero-actions">
+        <button id="importIdiomsJsonBtn" type="button">Импортировать выражения</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
