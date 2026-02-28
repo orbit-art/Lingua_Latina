@@ -1,0 +1,10 @@
+{
+  "name": "Lingua Latina Pro",
+  "short_name": "LinguaLatina",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070912",
+  "theme_color": "#53a77d",
+  "description": "Латинский тренажёр: слова, правила, практика, статистика и достижения.",
+  "icons": []
+}
