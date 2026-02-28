@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Правила — Lingua Latina Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero compact">
+    <h1>Словарь правил</h1>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Меню</button>
+    <nav id="site-nav" class="nav">
+      <a class="nav-link" href="index.html">Главная</a>
+      <a class="nav-link" href="vocab.html">Слова</a>
+      <a class="nav-link active" href="rules.html">Правила</a>
+      <a class="nav-link" href="practice.html">Практика</a>
+      <div class="nav-settings">
+        <select id="themeSelect" aria-label="Тема сайта">
+          <option value="dark">Тёмная тема</option>
+          <option value="light">Светлая тема</option>
+        </select>
+        <div class="accent-palette" aria-label="Акцентные цвета">
+          <button type="button" class="accent-dot" data-accent="#9B111E" title="Рубиновый"></button>
+          <button type="button" class="accent-dot" data-accent="#50C878" title="Изумрудный"></button>
+          <button type="button" class="accent-dot" data-accent="#FFD700" title="Золотой"></button>
+          <button type="button" class="accent-dot" data-accent="#008B94" title="Иссиня-бирюзовый"></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Добавить правило</h2>
+      <form id="ruleForm" class="form-grid">
+        <input id="ruleTitle" type="text" placeholder="Название" required />
+        <input id="ruleCategory" type="text" placeholder="Категория" required />
+        <input id="ruleNote" type="text" placeholder="Описание" required />
+        <button type="submit">Добавить</button>
+      </form>
+      <input id="ruleSearch" type="search" placeholder="Поиск правил" />
+      <ul id="ruleList" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
