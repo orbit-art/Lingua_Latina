@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Слова — Lingua Latina Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero compact">
+    <h1>Словарь слов</h1>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Меню</button>
+    <nav id="site-nav" class="nav">
+      <a class="nav-link" href="index.html">Главная</a>
+      <a class="nav-link active" href="vocab.html">Слова</a>
+      <a class="nav-link" href="rules.html">Правила</a>
+      <a class="nav-link" href="practice.html">Практика</a>
+      <div class="nav-settings">
+        <select id="themeSelect" aria-label="Тема сайта">
+          <option value="dark">Тёмная тема</option>
+          <option value="light">Светлая тема</option>
+        </select>
+        <div class="accent-palette" aria-label="Акцентные цвета">
+          <button type="button" class="accent-dot" data-accent="#7c133b" title="Алый"></button>
+          <button type="button" class="accent-dot" data-accent="#53a77d" title="Изумрудный"></button>
+          <button type="button" class="accent-dot" data-accent="#ffebba" title="Золотой"></button>
+          <button type="button" class="accent-dot" data-accent="#6f96aa" title="Голубой"></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Добавить слово</h2>
+      <form id="wordForm" class="form-grid">
+        <input id="latinWord" type="text" placeholder="Латинское слово" required />
+        <input id="wordMeaning" type="text" placeholder="Перевод" required />
+        <input id="wordExample" type="text" placeholder="Пример" />
+        <select id="wordDifficulty">
+          <option value="easy">Лёгкое</option>
+          <option value="medium" selected>Среднее</option>
+          <option value="hard">Сложное</option>
+        </select>
+        <button type="submit">Добавить</button>
+      </form>
+      <div class="toolbar">
+        <input id="wordSearch" type="search" placeholder="Поиск" />
+        <select id="wordFilter">
+          <option value="all">Все</option>
+          <option value="learned">Выученные</option>
+          <option value="notLearned">В процессе</option>
+          <option value="hard">Сложные</option>
+        </select>
+      </div>
+      <ul id="wordList" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
