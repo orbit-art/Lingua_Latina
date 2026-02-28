@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingua Latina Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Lingua Latina Pro</h1>
+    <p>Многостраничная платформа для изучения латыни: слова, правила, практика и мини-игры.</p>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Меню</button>
+    <nav id="site-nav" class="nav">
+      <a class="nav-link active" href="index.html">Главная</a>
+      <a class="nav-link" href="vocab.html">Слова</a>
+      <a class="nav-link" href="rules.html">Правила</a>
+      <a class="nav-link" href="practice.html">Практика</a>
+      <div class="nav-settings">
+        <select id="themeSelect" aria-label="Тема сайта">
+          <option value="dark">Тёмная тема</option>
+          <option value="light">Светлая тема</option>
+        </select>
+        <div class="accent-palette" aria-label="Акцентные цвета">
+          <button type="button" class="accent-dot" data-accent="#7c133b" title="Алый"></button>
+          <button type="button" class="accent-dot" data-accent="#53a77d" title="Изумрудный"></button>
+          <button type="button" class="accent-dot" data-accent="#ffebba" title="Золотой"></button>
+          <button type="button" class="accent-dot" data-accent="#6f96aa" title="Голубой"></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Общая статистика</h2>
+      <div class="stats-grid">
+        <div><strong id="totalWords">0</strong><span>слов</span></div>
+        <div><strong id="learnedWords">0</strong><span>выучено</span></div>
+        <div><strong id="totalRules">0</strong><span>правил</span></div>
+        <div><strong id="correctAnswers">0</strong><span>верных ответов</span></div>
+      </div>
+      <p id="streakStatus" class="muted"></p>
+      <p id="goalStatus" class="muted"></p>
+      <form id="goalForm" class="form-inline">
+        <input id="dailyGoalInput" type="number" min="1" step="1" placeholder="Цель слов в день" required />
+        <button type="submit">Обновить цель</button>
+      </form>
+    </section>
+
+
+    <section class="card translator-card">
+      <h2>Переводчик</h2>
+      <p class="muted">Переводит на основе твоего личного словаря. Добавляй слова во вкладке «Слова».</p>
+      <form id="translatorForm" class="form-grid">
+        <select id="translatorDirection" aria-label="Направление перевода">
+          <option value="la-ru">Латынь → Русский</option>
+          <option value="ru-la">Русский → Латынь</option>
+        </select>
+        <input id="translatorInput" type="text" placeholder="Введи слово для перевода" required />
+        <button type="submit">Перевести</button>
+      </form>
+      <div id="translatorResult" class="translator-result muted">Здесь появится перевод.</div>
+      <ul id="translatorHints" class="translator-hints"></ul>
+    </section>
+
+    <section class="card">
+      <h3>Резервная копия</h3>
+      <div class="hero-actions">
+        <button id="exportBtn">Экспорт JSON</button>
+        <label class="file-label" for="importInput">Импорт JSON</label>
+        <input id="importInput" type="file" accept="application/json" hidden />
+        <button id="resetBtn" class="danger-btn">Сбросить всё</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
