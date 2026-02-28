@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingua Latina Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Lingua Latina Pro</h1>
+    <p>Многостраничная платформа для изучения латыни: слова, правила, практика и мини-игры.</p>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Меню</button>
+    <nav id="site-nav" class="nav">
+      <a class="nav-link active" href="index.html">Главная</a>
+      <a class="nav-link" href="vocab.html">Слова</a>
+      <a class="nav-link" href="rules.html">Правила</a>
+      <a class="nav-link" href="practice.html">Практика</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Общая статистика</h2>
+      <div class="stats-grid">
+        <div><strong id="totalWords">0</strong><span>слов</span></div>
+        <div><strong id="learnedWords">0</strong><span>выучено</span></div>
+        <div><strong id="totalRules">0</strong><span>правил</span></div>
+        <div><strong id="correctAnswers">0</strong><span>верных ответов</span></div>
+      </div>
+      <p id="streakStatus" class="muted"></p>
+      <p id="goalStatus" class="muted"></p>
+      <form id="goalForm" class="form-inline">
+        <input id="dailyGoalInput" type="number" min="1" step="1" placeholder="Цель слов в день" required />
+        <button type="submit">Обновить цель</button>
+      </form>
+    </section>
+
+    <section class="card two-col">
+      <div>
+        <h3>Быстрые действия</h3>
+        <div class="hero-actions">
+          <a class="btn-link" href="vocab.html">Добавить слово</a>
+          <a class="btn-link" href="rules.html">Добавить правило</a>
+          <a class="btn-link" href="practice.html">Начать тренировку</a>
+        </div>
+      </div>
+      <div>
+        <h3>Резервная копия</h3>
+        <div class="hero-actions">
+          <button id="exportBtn">Экспорт JSON</button>
+          <label class="file-label" for="importInput">Импорт JSON</label>
+          <input id="importInput" type="file" accept="application/json" hidden />
+          <button id="resetBtn" class="danger-btn">Сбросить всё</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
